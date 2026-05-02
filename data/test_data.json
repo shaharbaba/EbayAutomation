@@ -1,0 +1,7 @@
+{
+  "_comment": "Set max_price in Dollar $ currency",
+  "search_query": "shoes",
+  "max_price": 60,
+  "limit": 5,
+  "base_url": "https://www.ebay.com"
+}

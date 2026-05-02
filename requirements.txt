@@ -1,0 +1,6 @@
+playwright
+pytest-playwright
+pytest
+allure-pytest
+pytest-html
+allure-python-commons
