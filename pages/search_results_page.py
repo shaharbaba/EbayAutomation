@@ -12,11 +12,11 @@ class SearchResultsPage(BasePage):
     #  - Handling pagination
 
     # Locators
-    _ITEM_CARDS  = '//li[contains(@class,"s-card")]'       # XPath — page level
-    _ITEM_LINK   = 'a.s-card__link'                        # CSS — inside card
-    _ITEM_PRICE  = 'span.s-card__price'                    # CSS — inside card
-    _ITEM_TITLE  = '.s-card__title'                         # CSS — inside card
-    _NEXT_BUTTON = '//a[@aria-label="Go to next search page"]'  # XPath — page level
+    _ITEM_CARDS  = '//li[contains(@class,"s-card")]'
+    _ITEM_LINK   = 'a.s-card__link'
+    _ITEM_PRICE  = 'span.s-card__price'
+    _ITEM_TITLE  = '.s-card__title'
+    _NEXT_BUTTON = '//a[@aria-label="Go to next search page"]'
 
     _RESULTS_CONTAINER = '.srp-river-main'
     _MAX_PRICE_INPUT   = '[aria-label^="Maximum Value in"]'
@@ -30,7 +30,7 @@ class SearchResultsPage(BasePage):
         try:
             el = self._page.wait_for_selector(self._MAX_PRICE_INPUT, timeout=5_000)
 
-            # Derive currency from aria-label, e.g. "Maximum Value in ILS" → "ILS"
+            # Derive currency from aria-label, e.g. "Maximum Value in ILS" to "ILS"
             aria_label = el.get_attribute("aria-label") or ""
             currency = aria_label.split(" in ")[-1].strip() if " in " in aria_label else "USD"
 

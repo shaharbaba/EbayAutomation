@@ -27,13 +27,6 @@ class ItemPage(BasePage):
 
     # Variant selection
     def _select_random_variants(self) -> None:
-        """
-        eBay uses custom listbox dropdowns (generic — works for Size, Color, Style, etc.)
-        For each variant button found on the page:
-          1. Click to open the dropdown
-          2. Find options within the SAME parent container (not globally)
-          3. Pick a random available (non-disabled, non-placeholder) option
-        """
         buttons = self._page.locator(self._VARIANT_BUTTONS).all()
         print(f"[ItemPage] Found {len(buttons)} variant buttons")
 
@@ -89,11 +82,6 @@ class ItemPage(BasePage):
 
     # Add to cart
     def add_to_cart(self, item_url: str, max_price: float) -> float | None:
-        """
-        Navigates to item, selects variants, adds to cart.
-        Uses navigate() directly to preserve the session/cookies.
-        Returns the price if successful, None otherwise.
-        """
         try:
             log(f"URL: {item_url}", "Navigating to Item")
             self.navigate(item_url)
